@@ -1,5 +1,8 @@
 # SpringScheduleAdmin(简称ssa)
 
+[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
+![java version](https://img.shields.io/badge/JAVA-1.8+-green.svg)
+
 #### 介绍
 
 SpringScheduleAdmin 是一个用于管理spring自带的Scheduled注解，定时任务的管理插件，能够方便的在项目中管理你的SpringSchedule的定时任务
@@ -58,3 +61,6 @@ public class TraceIdInterceptorsConfig extends WebMvcConfigurerAdapter{
 访问你的项目路径后面加上  `ssa/#/`
 
 例如：`http://localhost:8080/ssa/#/` <- 这里的`/#/`不可省略
+
+![avatar](/pic/img.png)
+![avatar](/pic/img_1.png)
