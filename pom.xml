@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.plumelog</groupId>
     <artifactId>spring-schedule-admin</artifactId>
-     <version>1.0-SNAPSHOT</version>
+     <version>1.0</version>
     <modules>
         <module>spring-boot-schedule-admin-ui</module>
         <module>spring-boot-schedule-admin-autoconfigure</module>
