@@ -1,39 +1,60 @@
-# springScheduleAdmin
+# SpringScheduleAdmin(简称ssa)
 
 #### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
 
-#### 软件架构
-软件架构说明
-
+SpringScheduleAdmin 是一个用于管理spring自带的Scheduled注解，定时任务的管理插件，能够方便的在项目中管理你的SpringSchedule的定时任务
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+* 第一步：引入依赖到项目中
 
-#### 使用说明
+```xml
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+<dependency>
+    <groupId>com.plumelog</groupId>
+    <artifactId>spring-boot-schedule-admin-starter</artifactId>
+    <version>${version}</version>
+    <scope>compile</scope>
+</dependency>
+```
+* 第二步:检查你项目中的静态文件配置
 
-#### 参与贡献
+情况一：如果你的项目访问ssa页面空白，说明没有配置可以访问静态文件请做如下配置 在application.properties配置：
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+```properties
+spring.mvc.static-path-pattern=/**
+spring.resources.static-locations=classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+```
 
+情况二：拦截器会覆盖spring.resources.static-locations，如果项目中有拦截器，需要在拦截器里配置静态文件访问
 
-#### 特技
+示例：
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+```java
+import com.plumelog.core.PlumeLogTraceIdInterceptor;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+@Configuration
+public class TraceIdInterceptorsConfig extends WebMvcConfigurerAdapter{
+    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {"classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/"};
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        //就是这句addResourceLocations，加上静态文件访问路径
+        registry.addResourceHandler("/**").addResourceLocations(CLASSPATH_RESOURCE_LOCATIONS);
+    }
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new PlumeLogTraceIdInterceptor());
+        super.addInterceptors(registry);
+    }
+
+}
+```
+* 第三步:启动你的项目
+
+访问你的项目路径后面加上  `ssa/#/`
+
+例如：`http://localhost:8080/ssa/#/` <- 这里的`/#/`不可省略
