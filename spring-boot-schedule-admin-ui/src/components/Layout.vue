@@ -17,7 +17,7 @@
         </el-header>
         <el-main class="content">
           <el-scrollbar class="scroll">
-            <el-card style="max-width: 1500px;">
+            <el-card >
               <div slot="header" class="clearfix">
                 <span>任务</span>
               </div>
@@ -31,6 +31,7 @@
                 </el-table-column>
                 <el-table-column
                     prop="status"
+                    width="210"
                     label="运行状态">
                   <template slot-scope="scope">
                     <el-tag v-if="scope.row.status === 'running'">运行中</el-tag>
@@ -38,6 +39,7 @@
                   </template>
                 </el-table-column>
                 <el-table-column
+                    width="300"
                     prop="expression"
                     label="Expression" >
                   <template slot-scope="scope">
