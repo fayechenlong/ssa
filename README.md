@@ -1,5 +1,7 @@
 # SpringScheduleAdmin(简称ssa)
 
+[![star](https://gitee.com/plumeorg/spring-schedule-admin/badge/star.svg?theme=dark)](https://gitee.com/frankchenlong/plumelog/stargazers)
+[![fork](https://gitee.com/plumeorg/spring-schedule-admin/badge/fork.svg?theme=dark)](https://gitee.com/frankchenlong/plumelog/members)
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 ![java version](https://img.shields.io/badge/JAVA-1.8+-green.svg)
 
