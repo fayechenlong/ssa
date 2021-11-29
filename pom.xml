@@ -7,7 +7,6 @@
     <artifactId>spring-schedule-admin</artifactId>
      <version>1.0</version>
     <modules>
-        <module>spring-boot-schedule-admin-ui</module>
         <module>spring-boot-schedule-admin-autoconfigure</module>
         <module>spring-boot-schedule-admin-starter</module>
         <module>spring-boot-schedule-admin-example</module>
@@ -31,36 +30,37 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+        <licenses>
+            <license>
+                <name>Apache License, Version 2.0</name>
+                <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+                <distribution>repo</distribution>
+            </license>
+        </licenses>
+        <scm>
+            <url>https://gitee.com/plumeorg/spring-schedule-admin</url>
+            <connection>scm:git:https://gitee.com/plumeorg/spring-schedule-admin.git</connection>
+            <developerConnection>scm:git:https://gitee.com/plumeorg/spring-schedule-admin.git</developerConnection>
+        </scm>
+        <developers>
+            <developer>
+                <name>frank.chen</name>
+                <email>409111252@qq.com</email>
+                <url>http://www.plumelog.com</url>
+            </developer>
+        </developers>
+        <distributionManagement>
+            <snapshotRepository>
+                <id>ossrh</id>
+                <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            </snapshotRepository>
+            <repository>
+                <id>ossrh</id>
+                <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            </repository>
+        </distributionManagement>
     <build>
-    <!--    <licenses>-->
-    <!--        <license>-->
-    <!--            <name>Apache License, Version 2.0</name>-->
-    <!--            <url>http://www.apache.org/licenses/LICENSE-2.0</url>-->
-    <!--            <distribution>repo</distribution>-->
-    <!--        </license>-->
-    <!--    </licenses>-->
-    <!--    <scm>-->
-    <!--        <url>https://gitee.com/plumeorg/spring-schedule-admin</url>-->
-    <!--        <connection>scm:git:https://gitee.com/plumeorg/spring-schedule-admin.git</connection>-->
-    <!--        <developerConnection>scm:git:https://gitee.com/plumeorg/spring-schedule-admin.git</developerConnection>-->
-    <!--    </scm>-->
-    <!--    <developers>-->
-    <!--        <developer>-->
-    <!--            <name>frank.chen</name>-->
-    <!--            <email>409111252@qq.com</email>-->
-    <!--            <url>http://www.plumelog.com</url>-->
-    <!--        </developer>-->
-    <!--    </developers>-->
-    <!--    <distributionManagement>-->
-    <!--        <snapshotRepository>-->
-    <!--            <id>ossrh</id>-->
-    <!--            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>-->
-    <!--        </snapshotRepository>-->
-    <!--        <repository>-->
-    <!--            <id>ossrh</id>-->
-    <!--            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
-    <!--        </repository>-->
-    <!--    </distributionManagement>-->
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -71,64 +71,64 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.sonatype.plugins</groupId>-->
-<!--                <artifactId>nexus-staging-maven-plugin</artifactId>-->
-<!--                <version>1.6.8</version>-->
-<!--                <extensions>true</extensions>-->
-<!--                <configuration>-->
-<!--                    &lt;!&ndash; 这里的id必须要和全局配置中的release id 一致 &ndash;&gt;-->
-<!--                    <serverId>ossrh</serverId>-->
-<!--                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>-->
-<!--                    <autoReleaseAfterClose>false</autoReleaseAfterClose>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--            &lt;!&ndash;Source &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-source-plugin</artifactId>-->
-<!--                <version>2.2.1</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>package</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>jar-no-fork</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-<!--            &lt;!&ndash;Javadoc &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-javadoc-plugin</artifactId>-->
-<!--                <version>2.9.1</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>attach-javadocs</id>-->
-<!--                        <goals>-->
-<!--                            <goal>jar</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--                <configuration>-->
-<!--                    &lt;!&ndash;/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home&ndash;&gt;-->
-<!--                    <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
-<!--            &lt;!&ndash; GPG &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-gpg-plugin</artifactId>-->
-<!--                <version>1.5</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <phase>verify</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>sign</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <!-- 这里的id必须要和全局配置中的release id 一致 -->
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <!--Source -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!--Javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!--/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home-->
+                    <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+                </configuration>
+            </plugin>
+            <!-- GPG -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
