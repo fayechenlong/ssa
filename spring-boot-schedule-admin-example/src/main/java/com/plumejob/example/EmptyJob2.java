@@ -1,5 +1,6 @@
 package com.plumejob.example;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -9,10 +10,15 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class EmptyJob2 {
-
-    @Scheduled(cron = "0/55 * * * * ? ")
+    private static org.slf4j.Logger logger= LoggerFactory.getLogger(EmptyJob2.class);
+    @Scheduled(cron = "0/10 * * * * ? ")
     public void job() {
-        System.out.println("empty job2");
+        logger.info("empty job 2");
+    }
+
+    @Scheduled(cron = "0/30 * * * * ? ")
+    public void job3() {
+        logger.info("empty job 3");
     }
 
 }

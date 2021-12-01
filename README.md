@@ -30,3 +30,15 @@ SpringScheduleAdmin 是一个用于管理spring自带的Scheduled注解，定时
 
 ![avatar](/pic/img.png)
 ![avatar](/pic/img_1.png)
+
+* 体验地址
+  
+  http://ssa.plumelog.com/ssa/#/
+
+  注意：com.plumelog.lite.client.AutoDeleteLogs.deleteLogs 这个任务不要修改
+
+  这个体验地址还整合了plumelog-lite,可以用plumelog-lite查看执行情况
+
+  打开 http://ssa.plumelog.com/plumelog/#/console  
+  
+  应用名称里选择ssa,点击连接按钮查看控制台日志
