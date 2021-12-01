@@ -19,7 +19,7 @@ SpringScheduleAdmin 是一个用于管理spring自带的Scheduled注解，定时
 <dependency>
     <groupId>com.plumelog</groupId>
     <artifactId>spring-boot-schedule-admin-starter</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 </dependency>
 ```
 * 第二步:启动你的项目
