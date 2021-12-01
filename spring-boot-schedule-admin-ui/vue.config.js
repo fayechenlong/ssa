@@ -12,12 +12,12 @@ module.exports = {
         },
         disableHostCheck: true,
         proxy: {
-            '/plumejob': {
+            '/ssa': {
                 target: process.env.VUE_APP_API_URL_TARGET,
                 changeOrigin: true,
                 debug: true,
                 pathRewrite: {
-                    '^/plumejob': '/plumejob',
+                    '^/ssa': '/ssa',
                 }
             },
         }

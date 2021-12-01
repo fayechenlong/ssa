@@ -87,7 +87,7 @@ public class PlumejobManager  implements SchedulingConfigurer, InitializingBean 
             reStartTask(runnable, expression);
         } else {
             CronTask cronTask = new CronTask(plumeCronTask.getCronTask().getRunnable(), expression);
-            cronTaskConcurrentHashMap.put(jobName, new PlumeCronTask(cronTask));
+            cronTaskConcurrentHashMap.put(jobName, new PlumeCronTask(cronTask, PlumeCronTask.SUSPEND));
         }
     }
 

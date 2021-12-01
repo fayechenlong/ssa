@@ -14,6 +14,11 @@ public class PlumeCronTask {
         this.cronTask = cronTask;
     }
 
+    public PlumeCronTask(CronTask cronTask, String status) {
+        this.cronTask = cronTask;
+        this.status = status;
+    }
+
     public String getJobName() {
         return cronTask.toString();
     }
